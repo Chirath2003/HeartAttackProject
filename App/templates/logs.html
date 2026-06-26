@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audit Logs</title>
+</head>
+
+<body>
+
+<h2>Audit Logs</h2>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Action</th>
+    <th>Time</th>
+</tr>
+
+{% for log in logs %}
+
+<tr>
+    <td>{{ log.id }}</td>
+    <td>{{ log.username }}</td>
+    <td>{{ log.role }}</td>
+    <td>{{ log.action }}</td>
+    <td>{{ log.log_time }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">Dashboard</a>
+
+</body>
+</html>

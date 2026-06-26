@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Patient</title>
+</head>
+<body>
+
+<h2>Add Patient</h2>
+
+<form method="POST">
+
+    <label>Patient Name</label><br>
+    <input type="text" name="patient_name" required><br><br>
+
+    <label>Age</label><br>
+    <input type="number" name="age" required><br><br>
+
+    <label>Gender</label><br>
+    <select name="gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select><br><br>
+
+    <label>Hypertension</label><br>
+    <select name="hypertension">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select><br><br>
+
+    <label>Diabetes</label><br>
+    <select name="diabetes">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select><br><br>
+
+    <label>Cholesterol Level</label><br>
+    <input type="number" name="cholesterol_level"><br><br>
+
+    <button type="submit">
+        Save Patient
+    </button>
+
+</form>
+
+</body>
+</html>
