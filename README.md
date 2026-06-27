@@ -139,6 +139,9 @@ HeartAttackProject/
 │   │   ├── database_setup.py
 │   │   └── ehr.db
 │   │
+|   ├── static/
+|   |   ├── style.css
+|   |
 │   └── templates/
 │       ├── add_patient.html
 │       ├── dashboard.html
