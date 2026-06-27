@@ -2,38 +2,51 @@
 <html>
 <head>
     <title>Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h2>Patient Records</h2>
+    <div class="topbar">
+        <div class="brand"><span class="heart">❤️</span> Heart Attack Prediction System</div>
+        <div class="user-info"><a href="/dashboard" style="color:#fff; text-decoration:none;">← Dashboard</a></div>
+    </div>
 
-<table border="1">
+    <div class="page-wrap">
+        <h2>📋 Patient Records</h2>
+        <p style="color: var(--muted); margin-top:-8px;">All registered patients and their latest prediction.</p>
 
-<tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Gender</th>
-    <th>Prediction</th>
-</tr>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Prediction</th>
+            </tr>
 
-{% for patient in patients %}
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.id }}</td>
+                <td>{{ patient.patient_name }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.gender }}</td>
+                <td>
+                    {% if patient.prediction == "High Risk" or patient.prediction == 1 %}
+                        <span class="badge badge-high">High Risk</span>
+                    {% elif patient.prediction %}
+                        <span class="badge badge-low">Low Risk</span>
+                    {% else %}
+                        —
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
 
-<tr>
-    <td>{{ patient.id }}</td>
-    <td>{{ patient.patient_name }}</td>
-    <td>{{ patient.age }}</td>
-    <td>{{ patient.gender }}</td>
-    <td>{{ patient.prediction }}</td>
-</tr>
-
-{% endfor %}
-
-</table>
-
-<br>
-
-<a href="/dashboard">Dashboard</a>
+        <div class="actions-row">
+            <a href="/dashboard" class="btn btn-outline">Dashboard</a>
+        </div>
+    </div>
 
 </body>
 </html>

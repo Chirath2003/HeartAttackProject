@@ -2,76 +2,116 @@
 <html>
 <head>
     <title>Heart Attack Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h2>Heart Attack Prediction</h2>
+    <div class="topbar">
+        <div class="brand"><span class="heart">❤️</span> Heart Attack Prediction System</div>
+        <div class="user-info"><a href="/dashboard" style="color:#fff; text-decoration:none;">← Dashboard</a></div>
+    </div>
 
-<form method="POST">
+    <div class="page-wrap">
+        <div class="card">
+            <h2>🩺 Heart Attack Risk Prediction</h2>
+            <p style="color: var(--muted); margin-top:-8px;">Enter patient vitals to estimate heart attack risk using the ML model.</p>
 
-    <label>Age</label><br>
-    <input type="number" name="age" required><br><br>
+            <form method="POST">
 
-    <label>Gender</label><br>
-    <select name="gender">
-        <option value="1">Male</option>
-        <option value="0">Female</option>
-    </select><br><br>
+                <div class="section-title">Demographics</div>
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Age</label>
+                        <input type="number" name="age" required>
+                    </div>
+                    <div class="field">
+                        <label>Gender</label>
+                        <select name="gender">
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+                </div>
 
-    <label>Hypertension</label><br>
-    <select name="hypertension">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
-    </select><br><br>
+                <div class="section-title">Medical History</div>
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Hypertension</label>
+                        <select name="hypertension">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Diabetes</label>
+                        <select name="diabetes">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
 
-    <label>Diabetes</label><br>
-    <select name="diabetes">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
-    </select><br><br>
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Obesity</label>
+                        <select name="obesity">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Family History</label>
+                        <select name="family_history">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
 
-    <label>Cholesterol Level</label><br>
-    <input type="number" name="cholesterol_level" required><br><br>
+                <div class="field">
+                    <label>Previous Heart Disease</label>
+                    <select name="previous_heart_disease">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
 
-    <label>Obesity</label><br>
-    <select name="obesity">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
-    </select><br><br>
+                <div class="section-title">Vitals &amp; Lifestyle</div>
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Cholesterol Level</label>
+                        <input type="number" name="cholesterol_level" required>
+                    </div>
+                    <div class="field">
+                        <label>Stress Level</label>
+                        <select name="stress_level">
+                            <option value="0">Low</option>
+                            <option value="1">Moderate</option>
+                            <option value="2">High</option>
+                        </select>
+                    </div>
+                </div>
 
-    <label>Family History</label><br>
-    <select name="family_history">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
-    </select><br><br>
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Systolic BP</label>
+                        <input type="number" name="blood_pressure_systolic" required>
+                    </div>
+                    <div class="field">
+                        <label>Diastolic BP</label>
+                        <input type="number" name="blood_pressure_diastolic" required>
+                    </div>
+                </div>
 
-    <label>Stress Level</label><br>
-    <select name="stress_level">
-        <option value="0">Low</option>
-        <option value="1">Moderate</option>
-        <option value="2">High</option>
-    </select><br><br>
+                <div class="field">
+                    <label>Sleep Hours</label>
+                    <input type="number" step="0.1" name="sleep_hours" required>
+                </div>
 
-    <label>Sleep Hours</label><br>
-    <input type="number" step="0.1" name="sleep_hours" required><br><br>
-
-    <label>Systolic BP</label><br>
-    <input type="number" name="blood_pressure_systolic" required><br><br>
-
-    <label>Diastolic BP</label><br>
-    <input type="number" name="blood_pressure_diastolic" required><br><br>
-
-    <label>Previous Heart Disease</label><br>
-    <select name="previous_heart_disease">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
-    </select><br><br>
-
-    <button type="submit">
-        Predict
-    </button>
-
-</form>
+                <button type="submit">🔍 Predict</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>

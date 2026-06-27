@@ -2,25 +2,38 @@
 <html>
 <head>
     <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<h2>Prediction Result</h2>
+    <div class="topbar">
+        <div class="brand"><span class="heart">❤️</span> Heart Attack Prediction System</div>
+        <div class="user-info"><a href="/dashboard" style="color:#fff; text-decoration:none;">← Dashboard</a></div>
+    </div>
 
-<h1>{{ result }}</h1>
+    <div class="page-wrap">
+        <div class="card result-box">
 
-<br>
+            {% if result == "High Risk" or result == 1 %}
+                <div class="icon-big">⚠️</div>
+                <p class="section-title">Prediction Outcome</p>
+                <h1 class="result-high">{{ result }}</h1>
+                <p style="color: var(--muted);">This patient shows indicators associated with elevated heart attack risk. Please consult a cardiologist for further evaluation.</p>
+            {% else %}
+                <div class="icon-big">✅</div>
+                <p class="section-title">Prediction Outcome</p>
+                <h1 class="result-low">{{ result }}</h1>
+                <p style="color: var(--muted);">No significant indicators of heart attack risk were detected based on the provided data.</p>
+            {% endif %}
 
-<a href="/predict">
-    Predict Again
-</a>
+            <div class="actions-row" style="justify-content:center;">
+                <a href="/predict" class="btn">Predict Again</a>
+                <a href="/dashboard" class="btn btn-outline">Dashboard</a>
+            </div>
 
-<br><br>
-
-<a href="/dashboard">
-    Dashboard
-</a>
+        </div>
+    </div>
 
 </body>
 </html>
